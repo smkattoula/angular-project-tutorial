@@ -1,16 +1,15 @@
-<input
-  class="form-control"
-  type="text"
-  name="username"
-  [(ngModel)]="username"
-  id="username"
-  placeholder="Enter username"
-/>
-<p class="mt-3">{{ username }}</p>
-<button
-  class="btn btn-primary"
-  (click)="onUsernameReset()"
-  [disabled]="username === ''"
->
-  Reset Username
+<button class="btn btn-primary" (click)="onToggleDetails()">
+  Display Details
 </button>
+<div class="mt-3">
+  <p *ngIf="toggle">Secret Password = tuna</p>
+  <div
+    *ngFor="let num of btnClicks"
+    [ngStyle]="{
+      'background-color': num >= 5 ? 'lightblue' : 'transparent'
+    }"
+    [ngClass]="{ 'text-color': num >= 5 }"
+  >
+    {{ num }}
+  </div>
+</div>

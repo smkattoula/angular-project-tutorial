@@ -6,13 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./server.component.css'],
 })
 export class ServerComponent implements OnInit {
-  username: string = '';
+  toggle: boolean = false;
+  counter: number = 0;
+  btnClicks: number[] = [];
 
   constructor() {}
 
   ngOnInit(): void {}
 
-  onUsernameReset() {
-    this.username = '';
+  onToggleDetails() {
+    this.toggle = !this.toggle;
+    this.btnClicks.push((this.counter += 1));
   }
 }
